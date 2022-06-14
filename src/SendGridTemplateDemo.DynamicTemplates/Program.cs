@@ -9,10 +9,11 @@ var templateId = "{dynamic template id}";
 var dynamicTemplateData = new
 {
     recipientName = "Demo User", 
-    blogPostList = new[]
+    todoItemList = new[]
     {
-        new { title = "title 1", url = "https://twilio.com/blog/post1" },
-        new { title = "title 2", url = "https://twilio.com/blog/post2" }
+        new { Title = "Organize invoices", DueDate = "11 June 2022", Status = "Completed" },
+        new { Title = "Prepare taxes", DueDate = "12 June 2022", Status = "In progress" },
+        new { Title = "Submit taxes", DueDate = "25 June 2022", Status = "Pending" },
     }
 };
 
