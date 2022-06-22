@@ -1,14 +1,11 @@
 ﻿using SendGrid;
 using SendGrid.Helpers.Mail;
 
-#region Set up Client and Shared Code
 var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
 var client = new SendGridClient(apiKey);
 var from = new EmailAddress("{ Your verified email address }", "{ Sender display name }");
 var to = new EmailAddress("{ Recipient email address }", "{ Recipient display name }");
-#endregion
 
-#region Simple Email Example
 var subject = "Testing the API key";
 var plainTextContent = "Testing a simple email";
 var htmlContent = "<strong>Testing simple email in HTML</strong>";
@@ -18,9 +15,7 @@ if (response.IsSuccessStatusCode)
 {
     Console.WriteLine("Email has been sent successfully");
 }
-#endregion Simple Email Example
 
-// #region Dynamic Email Example
 // var templateId = "{ Your template id }";
 // var dynamicTemplateData = new
 // {
@@ -40,4 +35,3 @@ if (response.IsSuccessStatusCode)
 // {
 //     Console.WriteLine("Email has been sent successfully");
 // }
-// #endregion Dynamic Email Example
