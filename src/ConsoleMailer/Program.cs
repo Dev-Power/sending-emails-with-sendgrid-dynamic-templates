@@ -1,11 +1,11 @@
 ﻿using SendGrid;
 using SendGrid.Helpers.Mail;
 
-#region Set up Client
+#region Set up Client and Shared Code
 var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
 var client = new SendGridClient(apiKey);
-var from = new EmailAddress("{verified email address}", "Blog Post Digest");
-var to = new EmailAddress("{recipient email address}", "{recipient display name}");
+var from = new EmailAddress("{ Your verified email address }", "{ Sender display name }");
+var to = new EmailAddress("{ Recipient email address }", "{ Recipient display name }");
 #endregion
 
 #region Simple Email Example
@@ -18,18 +18,19 @@ if (response.IsSuccessStatusCode)
 {
     Console.WriteLine("Email has been sent successfully");
 }
-#endregion
+#endregion Simple Email Example
 
 // #region Dynamic Email Example
-// var templateId = "{dynamic template id}";
+// var templateId = "{ Your template id }";
 // var dynamicTemplateData = new
 // {
+//     subject = $"To-Do List for {DateTime.UtcNow:MMMM}",
 //     recipientName = "Demo User", 
 //     todoItemList = new[]
 //     {
-//         new { Title = "Organize invoices", DueDate = "11 June 2022", Status = "Completed" },
-//         new { Title = "Prepare taxes", DueDate = "12 June 2022", Status = "In progress" },
-//         new { Title = "Submit taxes", DueDate = "25 June 2022", Status = "Pending" },
+//         new { title = "Organize invoices", dueDate = "11 June 2022", status = "Completed" },
+//         new { title = "Prepare taxes", dueDate = "12 June 2022", status = "In progress" },
+//         new { title = "Submit taxes", dueDate = "25 June 2022", status = "Pending" },
 //     }
 // };
 //
@@ -39,4 +40,4 @@ if (response.IsSuccessStatusCode)
 // {
 //     Console.WriteLine("Email has been sent successfully");
 // }
-// #endregion
+// #endregion Dynamic Email Example
